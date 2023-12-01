@@ -1,6 +1,6 @@
 ---
 title:  "Dapr Unleashed: Accelerating Microservice Development"
-date:   2023-12-01 23:04:23
+date:   2023-12-01 20:04:23
 categories: [general]
 tags: [general]
 ---
