@@ -25,8 +25,8 @@ While Kubernetes addresses the cloud portability requirement, it also introduces
 
 Going cloud-native and selecting the matching technologies is not an easy task. Looking at the cloud-native alternatives in Azure, there are several different options, ranging from high-complexity to low-complexity:
 
-- **High complexity:** Azure Red Hat OpenShift, (Azure Kubernetes Service (AKS))[https://learn.microsoft.com/en-us/azure/aks/what-is-aks?wt.mc_id=MVP_395548] — fully managed Kubernetes
-- **Middle ground:** (Azure Container Apps (ACA))[https://learn.microsoft.com/en-us/azure/container-apps/overview?wt.mc_id=MVP_395548] — serverless, managed container platform
+- **High complexity:** Azure Red Hat OpenShift, [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/what-is-aks?wt.mc_id=MVP_395548) — fully managed Kubernetes
+- **Middle ground:** [Azure Container Apps (ACA)](https://learn.microsoft.com/en-us/azure/container-apps/overview?wt.mc_id=MVP_395548) — serverless, managed container platform
 - **Low complexity:** Azure Functions — pure serverless, event-driven compute
 
 I intentionally place Azure Container Apps in the middle because it strikes a great balance between complexity and cost.
@@ -45,15 +45,15 @@ Besides the serverless benefits and simplified Kubernetes complexity, ACA has ex
 
 ### Dapr
 
-(Dapr)[https://dapr.io/] is a set of integrated APIs with built-in best practices and patterns to build distributed applications. Dapr increases developer productivity by 20–40% with out-of-the-box features such as workflow, pub/sub, state management, secret stores, external configuration, bindings, actors, distributed lock, and cryptography. Developers benefit from built-in security, reliability, and observability capabilities — no boilerplate code required. Azure Container Apps are fully integrated with Dapr sidecar containers, so no extra configuration is required.
+[Dapr](https://dapr.io/) is a set of integrated APIs with built-in best practices and patterns to build distributed applications. Dapr increases developer productivity by 20–40% with out-of-the-box features such as workflow, pub/sub, state management, secret stores, external configuration, bindings, actors, distributed lock, and cryptography. Developers benefit from built-in security, reliability, and observability capabilities — no boilerplate code required. Azure Container Apps are fully integrated with Dapr sidecar containers, so no extra configuration is required.
 
 ### .NET Aspire
 
-(.NET Aspire)[https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview?wt.mc_id=MVP_395548] is an opinionated, cloud-ready stack for building observable, production-ready, distributed applications. It is delivered through a collection of NuGet packages that handle specific cloud-native concerns, and it integrates natively with Azure Container Apps deployment.
+[.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview?wt.mc_id=MVP_395548) is an opinionated, cloud-ready stack for building observable, production-ready, distributed applications. It is delivered through a collection of NuGet packages that handle specific cloud-native concerns, and it integrates natively with Azure Container Apps deployment.
 
 ### Azure Developer CLI (azd)
 
-The (Azure Developer CLI (azd))[https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest&wt.mc_id=MVP_395548] is an open-source tool that accelerates the path from a local development environment to Azure. azd provides developer-friendly commands that map to key stages in the development workflow (code, build, deploy, monitor). Combined with .NET Aspire, `azd up` deploys your entire distributed application to ACA in a single command.
+The [Azure Developer CLI (azd)](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest&wt.mc_id=MVP_395548) is an open-source tool that accelerates the path from a local development environment to Azure. azd provides developer-friendly commands that map to key stages in the development workflow (code, build, deploy, monitor). Combined with .NET Aspire, `azd up` deploys your entire distributed application to ACA in a single command.
 
 ## Is ACA the Best Cloud-Native Alternative for .NET Developers?
 
@@ -72,10 +72,10 @@ Again, it depends. Here is what it depends on:
 In most scenarios, I recommend Azure Container Apps. It is serverless, deeply integrated with .NET tooling, and significantly reduces the operational complexity that would otherwise require a dedicated platform engineering team.
 
 Links
-(Azure Developer CLI)[https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest&wt.mc_id=MVP_395548]
+[Azure Developer CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest&wt.mc_id=MVP_395548)
 
-(.NET Aspire)[https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview?wt.mc_id=MVP_395548]
+[.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview?wt.mc_id=MVP_395548)
 
-(Azure Container Apps)[https://learn.microsoft.com/en-us/azure/container-apps/overview?wt.mc_id=MVP_395548]
+[Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview?wt.mc_id=MVP_395548)
 
-(Azure Kubernetes Service (AKS))[https://learn.microsoft.com/en-us/azure/aks/what-is-aks?wt.mc_id=MVP_395548]
+[Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/what-is-aks?wt.mc_id=MVP_395548)
