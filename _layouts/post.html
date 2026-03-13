@@ -27,12 +27,19 @@ layout: default
   <header class="post-header">
     <div class="post-meta">
       <time datetime="{{ page.date | date: "%Y-%m-%d %H:%M" }}" class="post-meta__date date">{{ page.date | date: "%-d %b %Y" }}</time>
+      &#8226; <span class="post-meta__read-time">{{ content | number_of_words | divided_by: 200 | at_least: 1 }} min read</span>
       {% if page.tags.size > 0 %}
       &#8226; <span class="post-meta__tags">on {% for tag in page.tags %}<a href="{{ site.baseurl }}/tags/#{{ tag }}">{{ tag }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %}</span>
       {% endif %}
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
   </header>
+
+  {% if page.canonical contains 'linkedin.com' %}
+  <div style="background:#f0f7ff;border-left:4px solid #0a66c2;padding:0.75em 1em;margin-bottom:1.5em;font-size:0.9em;">
+    Originally published on <a href="{{ page.canonical }}" target="_blank" rel="noopener">LinkedIn</a>.
+  </div>
+  {% endif %}
 
   <section class="post">
     {{ content }}
