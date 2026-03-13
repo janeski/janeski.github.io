@@ -1,5 +1,5 @@
 ---
-title:  "Welcome to my blog!"
+title:  "Cloud Native, Azure & .NET Insights — A Blog by Microsoft MVP Miroslav Janeski"
 date:   2021-12-23 12:04:23
 description: "Miroslav Janeski's blog on cloud architecture, agile development, agile leadership, and modern software engineering."
 categories: [cloud, software-engineering]

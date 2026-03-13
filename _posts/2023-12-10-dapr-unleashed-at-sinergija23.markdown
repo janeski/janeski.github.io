@@ -1,5 +1,5 @@
 ---
-title:  "Dapr Unleashed: Accelerating Microservice Development"
+title:  "Dapr Unleashed: Accelerating Cloud-Native Microservice Development with .NET and Azure"
 date:   2023-12-01 20:04:23
 description: "A recap of my session at Sinergija23 conference where I explored Dapr and its impact on accelerating microservice development with practical examples."
 categories: [cloud, microservices]
