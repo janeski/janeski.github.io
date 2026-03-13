@@ -63,6 +63,6 @@ An interesting detail: checking the Azure Resource Group reveals that all the re
 
 ## Read More
 
-- [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview)
-- [Azure Developer CLI (azd)](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview)
-- [Deploy a .NET Aspire solution to Azure](https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment)
+- [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview?wt.mc_id=MVP_395548)
+- [Azure Developer CLI (azd)](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview?wt.mc_id=MVP_395548)
+- [Deploy a .NET Aspire solution to Azure](https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment?wt.mc_id=MVP_395548)

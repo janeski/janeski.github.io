@@ -34,7 +34,7 @@ Excited to see what's next — and to continue building alongside this amazing c
 
 ## Useful Links for Developers, Engineers, and Architects
 
-- [AI App Templates with .NET and Azure](https://learn.microsoft.com/en-us/dotnet/azure/)
-- [Serverless GPUs in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/)
-- [Sidecar container in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/tutorial-custom-container-sidecar)
-- [Dynamic sessions in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/sessions)
+- [AI App Templates with .NET and Azure](https://learn.microsoft.com/en-us/dotnet/azure/?wt.mc_id=MVP_395548)
+- [Serverless GPUs in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/?wt.mc_id=MVP_395548)
+- [Sidecar container in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/tutorial-custom-container-sidecar?wt.mc_id=MVP_395548)
+- [Dynamic sessions in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/sessions?wt.mc_id=MVP_395548)

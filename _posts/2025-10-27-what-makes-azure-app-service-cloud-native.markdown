@@ -129,7 +129,7 @@ App Service deployments often bundle code, configuration, and dependencies toget
 ## 7. Useful Links
 
 1. [Architecting Cloud Native .NET Applications for Azure](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/) — Book
-2. [What is cloud-native?](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/definition) — Microsoft Definition
-3. [Choose Azure Compute Solution](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree)
-4. [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/)
-5. [Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/)
+2. [What is cloud-native?](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/definition?wt.mc_id=MVP_395548) — Microsoft Definition
+3. [Choose Azure Compute Solution](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree?wt.mc_id=MVP_395548)
+4. [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/?wt.mc_id=MVP_395548)
+5. [Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/?wt.mc_id=MVP_395548)
