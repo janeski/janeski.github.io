@@ -1,8 +1,9 @@
 ---
 title:  "Dapr Unleashed: Accelerating Microservice Development"
 date:   2023-12-01 20:04:23
-categories: [general]
-tags: [general]
+description: "A recap of my session at Sinergija23 conference where I explored Dapr and its impact on accelerating microservice development with practical examples."
+categories: [cloud, microservices]
+tags: [dapr, microservices, cloud-native, dotnet, kubernetes, sinergija23, azure, distributed-systems, event-driven, service-mesh, microsoft-mvp, csharp, devops, containers]
 ---
 
 I recently had the incredible opportunity to speak at Sinergija23, where I delved into the world of Dapr and its impact on microservice development. It was an enriching experience, filled with engaging discussions and valuable insights.
