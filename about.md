@@ -32,7 +32,7 @@ I currently serve as **Technical Director** and work at the intersection of soft
 
 ## Writing
 
-I write about Azure, .NET, and cloud-native architecture on this blog and on [LinkedIn](https://www.linkedin.com/in/miroslavjaneski/). I also contribute articles to the [Nebb blog](https://info.nebb.com/blog/author/miroslav-janeski).
+I write about Azure, .NET, and cloud-native architecture on this blog and on [LinkedIn](https://www.linkedin.com/in/miroslavjaneski/).
 
 ---
 
