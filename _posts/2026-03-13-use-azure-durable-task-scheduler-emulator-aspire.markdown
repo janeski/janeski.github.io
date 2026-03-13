@@ -5,11 +5,12 @@ description: "Integrate the Azure Durable Task Scheduler emulator into .NET Aspi
 categories: [cloud, dotnet]
 tags: [dotnet, aspire, azure, durable-functions, durable-task-scheduler, cloud-native, csharp, microservices, containers, devops, iot, azure-container-apps]
 canonical: https://www.linkedin.com/pulse/use-azure-durable-task-scheduler-emulator-aspire-miroslav-janeski-ebhdf/
+image: /images/posts/Aspire_Dashboard_Resource_Graph.png
 ---
 
-**Azure Durable Task Scheduler (DTS)** is Microsoft's managed orchestration backend for Durable Functions — a fully integrated alternative to the classic Azure Storage-based state store. It brings better performance, a built-in dashboard, and a cleaner operational model.
+[Azure Durable Task Scheduler (DTS)](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-task-scheduler/durable-task-scheduler?wt.mc_id=MVP_395548) is Microsoft's managed orchestration backend for Durable Functions — a fully integrated alternative to the classic Azure Storage-based state store. It brings better performance, a built-in dashboard, and a cleaner operational model.
 
-For local development, Microsoft ships a **DTS emulator** as a Docker container. In this article, I want to show you how I integrated it into a .NET Aspire app host, using Aspire's own configuration management to automatically wire up the connection string — no manual config files, no hardcoded ports.
+For local development, Microsoft ships a[DTS emulator](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler?wt.mc_id=MVP_395548) as a Docker container. In this article, I want to show you how I integrated it into a .NET Aspire app host, using Aspire's own configuration management to automatically wire up the connection string — no manual config files, no hardcoded ports.
 
 ## The Setup
 
@@ -20,10 +21,12 @@ The emulator is not yet available as a first-class Aspire integration (no `AddDu
 In `AppHost.cs`, the DTS emulator is registered as a plain container resource:
 
 ```csharp
-var dtsEmulator = builder.AddContainer("dts-emulator", "mcr.microsoft.com/dts/dts-emulator")
-    .WithEndpoint(port: 8080, targetPort: 8080, name: "grpc", scheme: "http")
-    .WithEndpoint(port: 8082, targetPort: 8082, name: "dashboard", scheme: "http")
+var dtsEmulator = builder.AddContainer("dts-emulator", "mcr.microsoft.com/dts/dts-emulator", "latest")
+    .WithEndpoint(targetPort: 8080, name: "grpc")
+    .WithEndpoint(targetPort: 8082, name: "dashboard", scheme: "http")
     .ExcludeFromManifest();
+
+var dtsGrpcEndpoint = dtsEmulator.GetEndpoint("grpc");
 ```
 
 Two endpoints matter here:
@@ -38,11 +41,17 @@ Two endpoints matter here:
 The interesting part is how the connection string reaches the Orchestrator project. Rather than hardcoding `localhost:8080`, Aspire builds the connection string dynamically from the endpoint reference:
 
 ```csharp
-var dtsConnectionString = ReferenceExpression.Create(
-    $"Endpoint=http://{dtsEmulator.GetEndpoint("grpc")};TaskHub=default;Authentication=None");
-
-var orchestrator = builder.AddProject<Projects.Orchestrator>("orchestrator")
-    .WithEnvironment("DURABLE_TASK_SCHEDULER_CONNECTION_STRING", dtsConnectionString)
+builder.AddAzureFunctionsProject<Projects.IoT_AI_Demo_Orchestrator>("orchestrator")
+    .WithHostStorage(storage)
+    .WithReference(serviceBus)
+    .WithReference(telemetrydb)
+    .WithEnvironment(ctx =>
+    {
+        ctx.EnvironmentVariables["DURABLE_TASK_SCHEDULER_CONNECTION_STRING"] =
+            ReferenceExpression.Create(
+                $"Endpoint=http://{dtsGrpcEndpoint.Property(EndpointProperty.Host)}:{dtsGrpcEndpoint.Property(EndpointProperty.Port)};Authentication=None");
+    })
+    .WithEnvironment("TASKHUB_NAME", "default")
     .WaitFor(dtsEmulator);
 ```
 
@@ -59,13 +68,14 @@ The Orchestrator project picks this up from its environment, just like any other
 On the **AppHost side**, the container-based approach means you don't need any DTS-specific hosting package — just the standard Aspire Azure Functions hosting:
 
 ```xml
-<PackageReference Include="Aspire.Hosting.Azure.Functions" Version="9.*" />
+<PackageReference Include="Aspire.Hosting.Azure.Functions" Version="13.1.2" />
 ```
 
 On the **Orchestrator side**, the Azure-managed Durable Task extension is what connects to DTS:
 
 ```xml
-<PackageReference Include="Microsoft.DurableTask.AzureManaged" Version="1.*" />
+<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged" Version="1.5.0" />
+<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.16.0" />
 ```
 
 ## Why This Works Well
@@ -78,6 +88,6 @@ The `WaitFor(dtsEmulator)` call ensures the container is healthy before the Orch
 
 ## Full Source
 
-The complete implementation is part of a larger IoT platform demo — a simulated smart fish tank with AI-powered alarm analysis using Azure Durable Functions, Azure OpenAI, and RAG via pgvector. This was the centerpiece of my talk at the meetup organized by the **Macedonian .NET Community on March 11, 2026**.
+The complete implementation is part of a larger IoT platform demo — a simulated smart fish tank with AI-powered alarm analysis using Azure Durable Functions, Azure OpenAI, and RAG via pgvector. This was the centerpiece of my [talk](https://www.linkedin.com/events/7434697383772352512?viewAsMember=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3BiZhsA4jPTTK7IbarAnduug%3D%3D) at the meetup organized by the **Macedonian .NET Community on March 11, 2026**.
 
 If you attended, this article is the written companion to what I showed live. If you didn't, the full source is available at [github.com/janeski/iot_with_ai_durable_functions](https://github.com/janeski/iot_with_ai_durable_functions) — everything you need to run the demo locally is there.

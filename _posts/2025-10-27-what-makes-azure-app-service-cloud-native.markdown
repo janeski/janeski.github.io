@@ -5,6 +5,8 @@ description: "Azure App Service has evolved into a capable cloud-native PaaS. Ex
 categories: [cloud, azure]
 tags: [azure, azure-app-service, cloud-native, paas, containers, microservices, dotnet, devops, kubernetes, azure-container-apps]
 canonical: https://www.linkedin.com/pulse/what-makes-azure-app-service-cloud-native-still-doesnt-janeski-d0d2f/
+image: /images/posts/1760534187948.jpg
+image_credit: 'Photo by <a href="https://www.pexels.com/photo/woman-wearing-blue-helmet-7709017/" target="_blank" rel="noopener">Mikhail Nilov</a> on Pexels'
 ---
 
 ## TL;DR
@@ -17,11 +19,11 @@ In this article, I will explore what makes Azure App Service one of the cloud-na
 
 ## 2. Being Cloud-Native in 2025
 
-Being cloud-native in 2025 is much more than living in the cloud. As a matter of fact, it might have less to do with the cloud, but much more with how you execute the overall process of modern software development. Microsoft offers great definition and even a book on the topic. In my previous article, I also gave my definition focusing on technology, architecture, and organization. Now, I would like to expand the definition with AI. Quite brave and provocative, but if you don't use AI for AI-assisted or even AI-generated development, then you are not doing cloud-native in 2025. Why? At its core, the definition says that cloud-native is a software development approach that leverages all available tools and processes to make the process more optimal and efficient. AI-assisted and AI-generated development are precise tools that can accelerate the overall software development process, whether it involves writing code, improving code coverage, executing Bicep scripts, analyzing logs, identifying opportunities for improvement, or contributing bug fixes and enhancements.
+Being cloud-native in 2025 is much more than living in the cloud. As a matter of fact, it might have less to do with the cloud, but much more with how you execute the overall process of modern software development. Microsoft offers great definition and even a [book](https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/?wt.mc_id=MVP_395548) on the topic. In my (previous article)[https://www.linkedin.com/posts/miroslavjaneski_microsoft-azure-mvp-activity-7340272001879572480-aX9Q?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAEbGbMB8eb9EROxFxu1kUmpRQm4RrgOm4U&lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3B4oAbamRBQ3O8PBv%2BHSasTw%3D%3D], I also gave my definition focusing on technology, architecture, and organization. Now, I would like to expand the definition with AI. Quite brave and provocative, but if you don't use AI for AI-assisted or even AI-generated development, then you are not doing cloud-native in 2025. Why? At its core, the definition says that cloud-native is a software development approach that leverages all available tools and processes to make the process more optimal and efficient. AI-assisted and AI-generated development are precise tools that can accelerate the overall software development process, whether it involves writing code, improving code coverage, executing Bicep scripts, analyzing logs, identifying opportunities for improvement, or contributing bug fixes and enhancements.
 
 ## 3. Azure App Service
 
-Azure App Service is a fully managed platform-as-a-service (PaaS) for building, deploying, and scaling web applications and APIs globally. The name itself indicates that this is a specialized service for web applications and a PaaS, with little or no control over the underlying infrastructure. As I mentioned, Azure App Service is one of the first PaaS services and is likely to have a large customer base for web applications and APIs. Over time, many features have been added to the product to meet market demand. In recent years, many new features were cloud-native or aimed to make the service more competitive and relevant to new customers while remaining compatible with existing customers.
+(Azure App Service)[https://learn.microsoft.com/en-us/azure/app-service/overview?wt.mc_id=MVP_395548] is a fully managed platform-as-a-service (PaaS) for building, deploying, and scaling web applications and APIs globally. The name itself indicates that this is a specialized service for web applications and a PaaS, with little or no control over the underlying infrastructure. As I mentioned, Azure App Service is one of the first PaaS services and is likely to have a large customer base for web applications and APIs. Over time, many features have been added to the product to meet market demand. In recent years, many new features were cloud-native or aimed to make the service more competitive and relevant to new customers while remaining compatible with existing customers.
 
 Here is a timeline with the most important features and releases over time grouped into several categories:
 
@@ -32,6 +34,8 @@ Here is a timeline with the most important features and releases over time group
 - 2024–2025: Modern Extensibility & Performance
 
 *Note: The timeline shows the major features relevant to this article; it is not a comprehensive list.*
+
+![Azure App Service Timeline](/images/posts/AzureAppService_Timeline.png)
 
 Looking at the timeline, one can conclude that the evolution of Azure App Service mirrors that of modern software development and cloud PaaS offerings. Of course, by following the trends, Microsoft has implemented several important cloud-native features that make Azure App Service a serious candidate for cloud-native solutions.
 
