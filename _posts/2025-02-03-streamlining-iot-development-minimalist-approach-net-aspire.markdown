@@ -4,7 +4,6 @@ date: 2025-02-03 00:00:00
 description: "Build a starter IoT app with .NET Aspire, MQTT, TimescaleDB, and Azure SignalR — the full distributed system orchestrated in ~40 lines of C#."
 categories: [cloud, dotnet]
 tags: [dotnet, aspire, iot, mqtt, azure, signalr, timescaledb, cloud-native, microservices, csharp, containers, devops]
-canonical: https://www.linkedin.com/pulse/streamlining-iot-development-minimalist-approach-net-aspire-janeski-t2rdf/
 ---
 
 Local development is a serious challenge when developing distributed systems, especially IoT solutions. The development team often requires end-to-end local development to complete the job. For example, imagine you have to tweak the real-time update on your charts in the web app — you either need an IoT device simulator or plug into the development environment. In both cases, you need the process automated. Otherwise, it will become cumbersome and too expensive.

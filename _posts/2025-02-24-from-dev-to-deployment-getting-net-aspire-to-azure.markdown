@@ -4,7 +4,6 @@ date: 2025-02-24 00:00:00
 description: "Deploy a .NET Aspire app to Azure Container Apps with a single azd up command — covering azd init, infra synth, and the full deployment pipeline."
 categories: [cloud, dotnet]
 tags: [dotnet, aspire, azure, azure-container-apps, azd, cloud-native, devops, containers, csharp, bicep, deployment, microservices]
-canonical: https://www.linkedin.com/pulse/from-dev-deployment-getting-net-aspire-azure-miroslav-janeski-ymrde
 image: /images/posts/1740080596540.jpg
 image_credit: 'Photo by <a href="https://www.pexels.com/photo/person-holding-space-rocket-toy-3697818/" target="_blank" rel="noopener">Matheus Bertelli</a> on Pexels'
 ---

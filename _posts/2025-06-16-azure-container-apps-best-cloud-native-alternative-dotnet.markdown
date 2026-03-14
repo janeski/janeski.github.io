@@ -4,7 +4,6 @@ date: 2025-06-16 00:00:00
 description: "How to choose between Azure Container Apps, AKS, and Azure Functions for .NET cloud-native development — with Dapr, .NET Aspire, and azd in the mix."
 categories: [cloud, dotnet]
 tags: [azure-container-apps, aks, azure-functions, cloud-native, dotnet, dapr, aspire, azd, kubernetes, microservices, serverless, azure, csharp, devops, containers]
-canonical: https://www.linkedin.com/pulse/azure-container-apps-best-cloud-native-alternative-net-janeski-rmtwf/
 image: /images/posts/1749825496198.jpg
 image_credit: 'Photo by <a href="https://www.pexels.com/photo/person-facing-a-big-screen-with-numbers-9783346/" target="_blank" rel="noopener">Ron Lach</a> on Pexels'
 ---

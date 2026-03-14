@@ -4,7 +4,6 @@ date: 2024-07-29 00:00:00
 description: "How the Dapr Extension for Azure Functions simplifies microservices development by eliminating boilerplate for Service Bus and CosmosDB integrations."
 categories: [cloud, microservices]
 tags: [azure-functions, dapr, microservices, cloud-native, azure, azure-container-apps, service-bus, cosmosdb, dotnet, csharp, distributed-systems, serverless, devops]
-canonical: https://www.linkedin.com/pulse/light-fast-cloud-native-microservices-azure-functions-janeski-8upwf/
 ---
 
 In today's microservices-driven world, managing communication between services can become complex and cumbersome. Azure Functions, Microsoft's serverless computing service, offers a powerful way to run event-driven code without worrying about the underlying infrastructure. The serverless concept is not new, and I have already shared a couple of posts regarding its benefits. The inspiration for this post comes from a recent feature released by the Azure Functions team: the **Dapr Extension for Azure Functions**.

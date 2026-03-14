@@ -4,7 +4,6 @@ date: 2025-10-27 00:00:00
 description: "Azure App Service has evolved into a capable cloud-native PaaS. Explore its cloud-native features, ideal use cases, and where AKS or Azure Container Apps fit better."
 categories: [cloud, azure]
 tags: [azure, azure-app-service, cloud-native, paas, containers, microservices, dotnet, devops, kubernetes, azure-container-apps]
-canonical: https://www.linkedin.com/pulse/what-makes-azure-app-service-cloud-native-still-doesnt-janeski-d0d2f/
 image: /images/posts/1760534187948.jpg
 image_credit: 'Photo by <a href="https://www.pexels.com/photo/woman-wearing-blue-helmet-7709017/" target="_blank" rel="noopener">Mikhail Nilov</a> on Pexels'
 ---

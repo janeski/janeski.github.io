@@ -4,7 +4,6 @@ date: 2024-06-20 00:00:00
 description: "Key Azure Functions team improvements to minimize cold start times — making Azure Functions a leading candidate for enterprise cloud-native microservices."
 categories: [cloud, azure]
 tags: [azure-functions, cold-starts, serverless, microservices, cloud-native, azure, performance, dotnet, flex-consumption, devops]
-canonical: https://www.linkedin.com/pulse/reducing-cold-starts-tips-azure-functions-team-miroslav-janeski-hdynf/
 ---
 
 The Azure Functions team has shared key improvements to minimize cold start times for Azure Functions. These updates promise enhanced performance and a better user experience.

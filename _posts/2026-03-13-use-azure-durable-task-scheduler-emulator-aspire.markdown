@@ -4,7 +4,6 @@ date: 2026-03-13 00:00:00
 description: "Integrate the Azure Durable Task Scheduler emulator into .NET Aspire using AddContainer() and ReferenceExpression — achieving symmetric local and cloud configuration."
 categories: [cloud, dotnet]
 tags: [dotnet, aspire, azure, durable-functions, durable-task-scheduler, cloud-native, csharp, microservices, containers, devops, iot, azure-container-apps]
-canonical: https://www.linkedin.com/pulse/use-azure-durable-task-scheduler-emulator-aspire-miroslav-janeski-ebhdf/
 image: /images/posts/Aspire_Dashboard_Resource_Graph.png
 ---
 

@@ -4,7 +4,6 @@ date: 2025-09-22 00:00:00
 description: "Microsoft named a Leader in the 2025 Gartner Magic Quadrant for Cloud-Native Application Platforms — furthest right for Completeness of Vision, for the second year in a row."
 categories: [cloud, azure]
 tags: [azure, cloud-native, gartner, microsoft, dotnet, paas, azure-container-apps, azure-app-service, ai, serverless, microsoft-mvp]
-canonical: https://www.linkedin.com/pulse/microsoft-azure-leader-2025-gartner-magic-quadrant-miroslav-janeski-nxw0f/
 image: /images/posts/1758487463664.jpg
 image_credit: 'Photo by <a href="https://www.pexels.com/photo/set-of-tool-wrench-162553/" target="_blank" rel="noopener">Pixabay</a> on Pexels'
 ---

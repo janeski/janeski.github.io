@@ -4,7 +4,6 @@ date: 2024-06-01 00:00:00
 description: "A rule of thumb for adopting serverless with Azure Functions — use metrics to spot ad-hoc spikes, the key signal that serverless is the right architectural choice."
 categories: [cloud, azure]
 tags: [azure-functions, serverless, cloud-native, azure, microservices, architecture, dotnet, scalability, devops]
-canonical: https://www.linkedin.com/pulse/rule-thumb-when-go-serverless-miroslav-janeski-onv4f/
 ---
 
 If you are wondering when you should go for serverless, especially in the context of an enterprise solution, I have a rule of thumb for you.

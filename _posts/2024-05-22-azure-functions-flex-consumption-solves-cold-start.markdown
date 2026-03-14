@@ -4,7 +4,6 @@ date: 2024-05-22 00:00:00
 description: "Azure Functions Flex Consumption solves cold starts while keeping pay-per-use billing and auto-scaling — powered by Microsoft's new internal scaling service, Legion."
 categories: [cloud, azure]
 tags: [azure-functions, serverless, cloud-native, azure, flex-consumption, cold-starts, microservices, dotnet, scalability, build2024, devops]
-canonical: https://www.linkedin.com/pulse/azure-functions-flex-consumption-solves-long-standing-janeski-hgapf/
 ---
 
 I've been using Azure Functions since version 1.x. I love the serverless model. It represents the core of being cloud-native. It enables the engineers to focus on the business logic while spending less time on the infrastructure and some of the cross-cutting concerns.
