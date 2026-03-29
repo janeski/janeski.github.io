@@ -1,19 +1,19 @@
 ---
-title: "How to Use Azure Dev Tunnels with .NET Aspire"
+title: "How to Use Azure Dev Tunnels with Aspire"
 date: 2026-03-16 08:45:00
-description: "Share your locally running .NET Aspire app with stakeholders and QA testers on any device — no deployment required — using the first-class Aspire Dev Tunnels integration."
+description: "Share your locally running Aspire app with stakeholders and QA testers on any device — no deployment required — using the first-class Aspire Dev Tunnels integration."
 categories: [cloud, dotnet]
 tags: [dotnet, aspire, azure, dev-tunnels, cloud-native, csharp, devops, local-development, qa, testing]
 image: /images/posts/Aspire_Dashboard_Resource_Graph.png
 ---
 
-[Azure Dev Tunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview?wt.mc_id=MVP_395548) let you expose a local port to the internet over a secure tunnel. For .NET Aspire apps, the most useful scenario is one that every developer has encountered: **you want a stakeholder or QA tester to access what you're building before it's deployed anywhere.**
+[Azure Dev Tunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview?wt.mc_id=MVP_395548) let you expose a local port to the internet over a secure tunnel. For Aspire apps, the most useful scenario is one that every developer has encountered: **you want a stakeholder or QA tester to access what you're building before it's deployed anywhere.**
 
 You have a feature branch running locally. The product owner wants to click through it. A QA engineer wants to test it on their phone or tablet. The traditional answer is "give me time to spin up a dev environment." With the first-class Dev Tunnels integration in Aspire, the answer is "here's a link."
 
 ## The Setup
 
-.NET Aspire ships a dedicated hosting package for Dev Tunnels. Add it to the AppHost:
+Aspire ships a dedicated hosting package for Dev Tunnels. Add it to the AppHost:
 
 ```xml
 <PackageReference Include="Aspire.Hosting.DevTunnels" Version="13.1.2" />
