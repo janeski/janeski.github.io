@@ -82,6 +82,8 @@ if (hasAspire && hasPm)
 
 If the mining service is absent (e.g. in Solution 1, or when the env var is not set), the branch falls through to the standard `UseOtlpExporter()` path and nothing changes for those services. No feature flags, no conditional compilation — just an environment variable check at startup.
 
+![Aspire Dashboard showing the process mining service alongside other resources](/images/posts/process_mining_aspire.png)
+
 ## Instrumenting the activities
 
 Each Durable Functions activity creates a span tagged with business context. The key attribute is `orchestration.instance_id` — it becomes the **case ID** in process mining, grouping all activity spans for a single alarm analysis run into one trace:
@@ -119,6 +121,8 @@ The reason I chose SQLite here is simplicity. The mining service is a sidecar to
 
 **Conformance checking.** Token replay replays each recorded case against the discovered model and measures fitness: how well the actual execution conforms. A fitness of 1.0 is perfect. Low-fitness cases usually have an obvious cause — an AI timeout that caused the validation step to be skipped, or a test run that exercised an error path.
 
+![Conformance checking results with fitness scores per case](/images/posts/conformance_check_aspire.png)
+
 **Performance analysis.** This is where process mining earns its place alongside traditional monitoring. Activity sojourn times across all cases:
 
 | Activity | Mean (ms) | Median (ms) |
@@ -130,7 +134,11 @@ The reason I chose SQLite here is simplicity. The mining service is a sidecar to
 
 The AI call dominates — expected. But a high p95 on `SearchSimilarAlarms` would indicate pgvector index pressure under load that the mean hides. While the traditional dashboards show aggregates, process mining shows the distribution.
 
+![Activity sojourn time distribution and throughput analysis](/images/posts/process_performance_aspire.png)
+
 **Variant analysis.** Variants are unique execution sequences. In a deterministic workflow you might expect one or two. In practice, error handling, fallback paths, and partial failures produce more. The variant table shows which paths are common and which are rare — and the Directly-Follows Graph shows transition frequencies between activities.
+
+![Variant frequency table and Directly-Follows Graph](/images/posts/process_mining_variants.png)
 
 ## The dashboard
 
