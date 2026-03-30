@@ -1,6 +1,6 @@
 ---
 title: "Mining Your IoT Alarm Workflows with pm4py and OpenTelemetry"
-date: 2026-03-30 23:20:00
+date: 2026-03-30 08:00:00
 description: "How to add a process mining layer to an IoT alarm pipeline using OpenTelemetry spans as an event log — and what pm4py reveals about runtime behavior that traditional observability cannot."
 categories: [cloud, dotnet]
 tags: [dotnet, aspire, azure, process-mining, opentelemetry, iot, python, durable-functions, observability, cloud-native]
