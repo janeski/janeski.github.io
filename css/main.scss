@@ -7,6 +7,14 @@
 
 /* Modifications */
 
+/* Sidebar name: a div (not an h1), so each post has a single h1 */
+.panel-cover__title {
+  font-family: "Roboto Slab", serif;
+  font-weight: lighter;
+  line-height: 1.2em;
+  -webkit-font-smoothing: antialiased;
+}
+
 pre.highlight,
 .highlight pre {
   padding: 10px;

@@ -4,6 +4,7 @@ date: 2026-10-21 00:00:00 +0000
 description: "Express, Dynamic Sessions and Sandboxes — how Azure Container Apps grew from a simpler Kubernetes into a platform where AI agents can live, run code and resume work."
 categories: [cloud, azure]
 post_class: post--vivid
+image: /images/posts/aca-agentic-era-cover.png
 tags: [azure, azure-container-apps, ai, ai-agents, agentic-ai, cloud-native, serverless, sandboxes, dynamic-sessions, containers, kubernetes]
 ---
 

@@ -28,8 +28,12 @@ $vivid-green-tint: #EEF8F1;
 		overflow: hidden;
 		box-shadow: 0 2px 8px rgba(60, 30, 90, .08);
 
-		thead th {
+		thead tr {
 			background: linear-gradient(90deg, $vivid-purple, $vivid-blue);
+		}
+
+		thead th {
+			background: transparent;
 			color: #fff;
 			border-bottom: none;
 			font-weight: 600;
