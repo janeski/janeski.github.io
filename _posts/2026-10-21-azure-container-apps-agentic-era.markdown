@@ -9,16 +9,17 @@ tags: [azure, azure-container-apps, ai, ai-agents, agentic-ai, cloud-native, ser
 
 For many years, Azure Container Apps (ACA) has been my first choice for implementing microservices and distributed applications. ACA encapsulates everything you need from Kubernetes, so you can focus on your business goals instead of the complexity of running a Kubernetes cluster. You get containers, revisions, scale to zero and KEDA-based autoscaling — without running a cluster. As a matter of fact, my rule of thumb is: **if you don't have Kubernetes skills and you don't need a specific Kubernetes feature, then ACA is probably what you need.**
 
-But in the era of AI, an agent needs three things that a classic web app never asked for:
+But in the era of AI, an agent needs four things that a classic web app never asked for:
 
-1. **A sandbox** — a place where the agent can run freely, executing code it just wrote, without putting anything else at risk.
-2. **State** — so that I can pick up a session later, exactly where the agent left it.
-3. **Speed** — the previous two only work if start, pause and resume are practically instant. Nobody waits 30 seconds for a container while chatting with an agent.
+1. **A harness** — a place for the agent loop itself to run, that wakes up for a conversation and costs nothing in between.
+2. **A sandbox** — a place where the agent can run freely, executing code it just wrote, without putting anything else at risk.
+3. **State** — so that I can pick up a session later, exactly where the agent left it.
+4. **Speed** — none of the above works unless start, pause and resume are practically instant. Nobody waits 30 seconds for a container while chatting with an agent.
 
-**The answer is a new ecosystem inside Container Apps: Express for the agent harness, Dynamic Sessions for sandboxed execution, and Sandboxes for stateful workspaces — all three built for speed.**
+**The answer is a new ecosystem inside Container Apps: Express for the harness, Dynamic Sessions for the sandbox, and Sandboxes for state — all three built for speed.**
 {: .callout}
 
-In this article, I want to walk you through all three — what they are, what they are good at, and where their limits are.
+In this article, I want to walk you through the three services — what they are, what they are good at, and where their limits are.
 
 ## 1. The ecosystem at a glance
 
@@ -98,7 +99,7 @@ Express is intentionally narrow, and it is important to be honest about what you
 
 ### What are Dynamic Sessions?
 
-Dynamic sessions give you fast access to secure, sandboxed environments for running code that must be strongly isolated from everything else. They are the answer to the first requirement: **a place where the agent can run freely.**
+Dynamic sessions give you fast access to secure, sandboxed environments for running code that must be strongly isolated from everything else. They are the answer to the sandbox requirement: **a place where the agent can run freely.**
 
 The scenario is familiar to anyone building agents. The LLM generates a Python script to analyse a CSV. You are certainly not going to `exec()` that inside your API process. The traditional answer was to build your own isolation layer. With dynamic sessions, the answer is one HTTP call.
 
@@ -129,7 +130,7 @@ My preference is to start with the code interpreter pool. It covers the classic 
 - **The pool decides** — you don't control individual session lifecycles, files or ports beyond what the pool exposes.
 - **Basic networking** — isolation, but not the fine-grained egress policies Sandboxes offer.
 
-**Impact:** Dynamic sessions are ideal for short, throwaway execution. They don't answer the second requirement — the agent can't come back tomorrow and continue.
+**Impact:** Dynamic sessions are ideal for short, throwaway execution. They don't answer the state requirement — the agent can't come back tomorrow and continue.
 {: .impact}
 
 ## 4. Sandboxes — the state
@@ -138,7 +139,7 @@ My preference is to start with the code interpreter pool. It covers the classic 
 
 Sandboxes are a new first-class resource type in Container Apps (`Microsoft.App/SandboxGroups`), sitting alongside apps, jobs and dynamic sessions. They provide isolated, ephemeral compute — but with **suspend and resume** built in.
 
-This is the answer to the second and third requirements together: **state, at speed.**
+This is the answer to two requirements together: **state, at speed.**
 
 Think of a coding agent working on a repository. It clones the code, installs packages, runs the tests, and then the user closes the laptop. With Sandboxes, the agent's whole machine — processes, memory and disk — is snapshotted. Tomorrow it resumes in under a second, with everything still in place.
 
@@ -236,7 +237,7 @@ In most agentic systems, I recommend using both: Express hosting the agent, dyna
 2. **Express runs the agent harness** — fast to provision, scales from zero, but intentionally limited: no GPU, no OpenTelemetry, no custom domains.
 3. **Dynamic sessions are the sandbox** — prewarmed, Hyper-V isolated, addressed by a simple identifier, and gone after the cooldown.
 4. **Sandboxes add state** — memory-and-disk snapshots, persistent volumes and lifecycle policies let an agent pause and resume its whole workspace.
-5. **Speed is what makes the other two usable** — sub-second allocation and restore turn isolation and state from an architecture problem into an API call.
+5. **Speed is what makes the other three usable** — sub-second allocation and restore turn isolation and state from an architecture problem into an API call.
 
 ## Useful Links
 
