@@ -1,0 +1,79 @@
+// Opt-in post styling: set `post_class: post--vivid` in a post's front matter.
+// Palette matches the diagram colors (purple → blue → green).
+
+$vivid-purple: #7E2FA0;
+$vivid-blue: #2D6FAE;
+$vivid-green: #2E9B4F;
+$vivid-purple-tint: #F6F0FA;
+$vivid-blue-tint: #EEF4FB;
+$vivid-green-tint: #EEF8F1;
+
+.post--vivid {
+	h2 {
+		padding-left: .6em;
+		border-left: 6px solid $vivid-purple;
+		color: #2b2b2b;
+	}
+
+	h3 {
+		color: $vivid-purple;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 0;
+		border: 1px solid #e3dcea;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 2px 8px rgba(60, 30, 90, .08);
+
+		thead th {
+			background: linear-gradient(90deg, $vivid-purple, $vivid-blue);
+			color: #fff;
+			border-bottom: none;
+			font-weight: 600;
+		}
+
+		tr:nth-child(even) td {
+			background: $vivid-purple-tint;
+		}
+
+		td {
+			background: #fff;
+			border-top: 1px solid #ece6f2;
+		}
+
+		td:first-child {
+			font-weight: 600;
+			color: #3b2350;
+		}
+	}
+
+	.callout {
+		margin: 1.5em 0;
+		padding: 1em 1.2em;
+		background: linear-gradient(90deg, $vivid-purple-tint, $vivid-blue-tint);
+		border-left: 5px solid $vivid-purple;
+		border-radius: 6px;
+	}
+
+	.why {
+		padding: .8em 1.1em;
+		background: $vivid-blue-tint;
+		border-left: 4px solid $vivid-blue;
+		border-radius: 6px;
+	}
+
+	.impact {
+		padding: .8em 1.1em;
+		background: $vivid-green-tint;
+		border-left: 4px solid $vivid-green;
+		border-radius: 6px;
+	}
+
+	ol li::marker {
+		color: $vivid-purple;
+		font-weight: 600;
+	}
+}

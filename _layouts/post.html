@@ -46,7 +46,7 @@ layout: default
   {% if page.image_credit %}<p style="font-size:0.75em;color:#888;margin-bottom:1.5em;">{{ page.image_credit }}</p>{% endif %}
   {% endif %}
 
-  <section class="post">
+  <section class="post{% if page.post_class %} {{ page.post_class }}{% endif %}">
     {{ content }}
   </section>
   {% if page.comments != false and site.disqus_shortname %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}

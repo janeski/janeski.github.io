@@ -1,15 +1,13 @@
 ---
-title: "Home, Sandbox, State: Azure Container Apps in the Agentic Era"
-date: 2026-10-20 08:00:00 +0000
+title: "Harness, Sandbox, State, Speed: Azure Container Apps in the Agentic Era"
+date: 2026-10-21 00:00:00 +0000
 description: "Express, Dynamic Sessions and Sandboxes — how Azure Container Apps grew from a simpler Kubernetes into a platform where AI agents can live, run code and resume work."
 categories: [cloud, azure]
+post_class: post--vivid
 tags: [azure, azure-container-apps, ai, ai-agents, agentic-ai, cloud-native, serverless, sandboxes, dynamic-sessions, containers, kubernetes]
-# TODO: hero image, e.g. shipping containers or a workbench (Pexels)
-# image: /images/<filename>.jpg
-# image_credit: 'Photo by <a href="...">...</a> on <a href="https://www.pexels.com">Pexels</a>'
 ---
 
-For many years, Azure Container Apps was a great product with an almost perfect balance between the usability of Kubernetes and its complexity. You got containers, revisions, scale to zero and KEDA-based autoscaling — without running a cluster.
+For many years, Azure Container Apps (ACA) has been my first choice for implementing microservices and distributed applications. ACA encapsulates everything you need from Kubernetes, so you can focus on your business goals instead of the complexity of running a Kubernetes cluster. You get containers, revisions, scale to zero and KEDA-based autoscaling — without running a cluster. As a matter of fact, my rule of thumb is: **if you don't have Kubernetes skills and you don't need a specific Kubernetes feature, then ACA is probably what you need.**
 
 But in the era of AI, an agent needs three things that a classic web app never asked for:
 
@@ -17,7 +15,8 @@ But in the era of AI, an agent needs three things that a classic web app never a
 2. **State** — so that I can pick up a session later, exactly where the agent left it.
 3. **Speed** — the previous two only work if start, pause and resume are practically instant. Nobody waits 30 seconds for a container while chatting with an agent.
 
-**The answer is a new ecosystem inside Container Apps: Express as the agent's home, Dynamic Sessions for sandboxed execution, and Sandboxes for stateful workspaces.**
+**The answer is a new ecosystem inside Container Apps: Express for the agent harness, Dynamic Sessions for sandboxed execution, and Sandboxes for stateful workspaces — all three built for speed.**
+{: .callout}
 
 In this article, I want to walk you through all three — what they are, what they are good at, and where their limits are.
 
@@ -34,17 +33,14 @@ Before diving in, it helps to see the four compute types side by side. Microsoft
 
 The way I think about it from an agent's perspective:
 
-```
-User ──► [ Express app: the agent ]
-                │
-                ├──► "run this Python the LLM just wrote"  ──► Dynamic session  (use and discard)
-                │
-                └──► "continue working on this repo later" ──► Sandbox          (suspend and resume)
-```
+![Azure Container Apps agentic ecosystem: the agent runs on Express and hands generated code to Dynamic sessions or Sandboxes](/images/posts/ACA_Agentic_Ecosystem.svg)
 
 **Express runs the code you trust. Sessions and Sandboxes run the code you don't.**
+{: .callout}
 
-## 2. Express — the agent's home
+## 2. Express — the agent harness
+
+By *harness* I mean the code around the model: the loop that takes the user's prompt, calls the LLM, picks a tool and decides what happens next. It's code you wrote and trust, and it needs a place to run.
 
 ### What is Express?
 
@@ -52,19 +48,38 @@ Container Apps Express is the "just run my container" mode of Container Apps. Mi
 
 You bring an image. You get an HTTPS endpoint.
 
+### What makes Express different
+
+Standard Container Apps runs on Kubernetes. Microsoft hides the cluster, but pods, sidecars, KEDA and Dapr are all there underneath. Express is different. According to the [Express FAQ](https://learn.microsoft.com/en-us/azure/container-apps/express-faq?wt.mc_id=MVP_395548), **under the hood, Express is built entirely on Container Apps Sandboxes**: each workload runs in its own isolated microVM, started from prewarmed pools. That is where the subsecond scale-from-zero comes from.
+
+There is a second trick: Express can restore an app's disk and memory state instead of replaying its boot sequence on every start. A Microsoft engineer [raced Express against a standard Consumption environment](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-container-apps-express-for-shipping-container-apps-fast/4531371?wt.mc_id=MVP_395548) with the same container image in West Central US:
+
+| Measured | Express | Consumption |
+| --- | --- | --- |
+| Cold start from zero (request to first response) | ~1.5 s | ~20 s |
+| Environment provisioning | ~14 s | ~120 s |
+| First deploy (environment + app) | ~52 s | ~166 s |
+| App deploy only (environment exists) | ~30 s | ~30 s |
+
+Once the environment exists, both deploy an app in the same ~30 seconds. **The difference is in everything that used to be built from scratch: the environment and the cold start.**
+
+It also explains the feature list. Sidecars, init containers, Dapr, custom KEDA scalers, service discovery and jobs all come from the Kubernetes pod model. Microsoft doesn't spell out the reason, but my reading is simple: **Express trades the pod model for speed, and the features built on pods don't come along.**
+
 ### Key features
 
 **Scale from zero, with optimized cold start.** Express apps run on consumption CPU, scale to zero when idle and come back on demand. The platform optimizes cold-start behavior for you.
 
-**Why it matters:** Agent traffic is bursty. Nothing for hours, then a flurry of chat turns. Paying for idle replicas makes no sense for that pattern.
+**Why it matters:** Agent traffic is bursty. Nothing for hours, then a flurry of chat turns. Paying for idle replicas makes no sense for that pattern.<br>
 → You pay for the conversations, not for the waiting.
+{: .why}
 
 **Opinionated defaults.** Scaling rules, networking and resource allocation are decided by the platform. You can still scale on HTTP, CPU or memory, use user-assigned managed identities, IP restrictions, CORS, VNet egress and private endpoints.
 
-**Why it matters:** Most agent backends are just HTTP APIs that call a model. They don't need a networking design session.
+**Why it matters:** Most agent backends are just HTTP APIs that call a model. They don't need a networking design session.<br>
 → Fewer decisions, faster time to production.
+{: .why}
 
-**A separate management experience.** Express apps are managed through a dedicated UI at [containerapps.azure.com](https://containerapps.azure.com/), not the standard Azure portal. In the portal, the platform creates a lightweight environment for you; from the CLI, you still create the environment yourself.
+**A separate management experience.** Express apps are managed through a dedicated UI at `containerapps.azure.com`, not the standard Azure portal. In the portal, the platform creates a lightweight environment for you; from the CLI, you still create the environment yourself.
 
 ### Limitations
 
@@ -77,6 +92,7 @@ Express is intentionally narrow, and it is important to be honest about what you
 - **Single revision only** — rolling updates work, traffic splitting doesn't.
 
 **Impact:** Express is perfect for agent APIs, chat frontends, AI gateways and prototypes. For an enterprise production system that needs custom domains, full observability and fine-grained networking, a standard workload profiles environment is still the right home.
+{: .impact}
 
 ## 3. Dynamic Sessions — the sandbox
 
@@ -114,6 +130,7 @@ My preference is to start with the code interpreter pool. It covers the classic 
 - **Basic networking** — isolation, but not the fine-grained egress policies Sandboxes offer.
 
 **Impact:** Dynamic sessions are ideal for short, throwaway execution. They don't answer the second requirement — the agent can't come back tomorrow and continue.
+{: .impact}
 
 ## 4. Sandboxes — the state
 
@@ -154,8 +171,9 @@ This is where Sandboxes feel designed for agents rather than adapted to them:
 - **Suspend mode** — *memory mode* (full snapshot: disk + memory) or *disk mode* (disk only).
 - **Auto-delete** — remove sandboxes a given number of days after they stop.
 
-**Why it matters:** You don't pay CPU or memory while a sandbox is stopped. An agent workspace can wait for days at the cost of its storage, and still resume instantly.
+**Why it matters:** You don't pay CPU or memory while a sandbox is stopped. An agent workspace can wait for days at the cost of its storage, and still resume instantly.<br>
 → Statefulness no longer means a VM running 24/7.
+{: .why}
 
 ### Speed and scale
 
@@ -187,9 +205,10 @@ az role assignment create \
 ```
 
 - **You own the lifecycle** — that's the point, but it also means more code than with a session pool.
-- **SDK coverage** — Python and REST today. [TODO: check whether a .NET SDK is available or announced]
+- **SDK coverage** — Python and REST today.
 
 **Impact:** More control and more responsibility. Worth it when state matters, overkill when it doesn't.
+{: .impact}
 
 ## 5. Sessions or Sandboxes?
 
@@ -214,7 +233,7 @@ In most agentic systems, I recommend using both: Express hosting the agent, dyna
 ## Takeaways
 
 1. **Container Apps is no longer just "simpler Kubernetes"** — it is becoming a platform for agents, with compute types designed around how agents behave.
-2. **Express is the agent's home** — fast to provision, scales from zero, but intentionally limited: no GPU, no OpenTelemetry, no custom domains.
+2. **Express runs the agent harness** — fast to provision, scales from zero, but intentionally limited: no GPU, no OpenTelemetry, no custom domains.
 3. **Dynamic sessions are the sandbox** — prewarmed, Hyper-V isolated, addressed by a simple identifier, and gone after the cooldown.
 4. **Sandboxes add state** — memory-and-disk snapshots, persistent volumes and lifecycle policies let an agent pause and resume its whole workspace.
 5. **Speed is what makes the other two usable** — sub-second allocation and restore turn isolation and state from an architecture problem into an API call.
@@ -224,4 +243,5 @@ In most agentic systems, I recommend using both: Express hosting the agent, dyna
 1. [Azure Container Apps express overview](https://learn.microsoft.com/en-us/azure/container-apps/express-overview?wt.mc_id=MVP_395548) — Microsoft Learn
 2. [Dynamic sessions in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/sessions?wt.mc_id=MVP_395548) — Microsoft Learn
 3. [Azure Container Apps Sandboxes overview](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview?wt.mc_id=MVP_395548) — Microsoft Learn
-4. [Container Apps Express management experience](https://containerapps.azure.com/)
+4. [Azure Container Apps express FAQ](https://learn.microsoft.com/en-us/azure/container-apps/express-faq?wt.mc_id=MVP_395548) — Microsoft Learn
+5. [Azure Container Apps Express for Shipping Container Apps Fast](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-container-apps-express-for-shipping-container-apps-fast/4531371?wt.mc_id=MVP_395548) — Microsoft Tech Community

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 940" width="2000" height="940" font-family="Aptos, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <rect width="2000" height="940" fill="#fff"/>
+
+  <!-- Azure Container Apps boundary -->
+  <rect x="400" y="50" width="1580" height="770" rx="18" fill="#F6F7F9" stroke="#A3ABB5" stroke-width="3" stroke-dasharray="14 10"/>
+  <text x="430" y="102" font-size="32" font-weight="600" fill="#5B6470">Azure Container Apps</text>
+
+  <!-- User -->
+  <circle cx="110" cy="395" r="42" fill="#3B3F45"/>
+  <path d="M45 525 C45 470 75 448 110 448 C145 448 175 470 175 525 Z" fill="#3B3F45"/>
+  <text x="110" y="580" font-size="34" text-anchor="middle" fill="#222">User</text>
+
+  <!-- User -> Express -->
+  <line x1="195" y1="450" x2="436" y2="450" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="300" y="430" font-size="28" text-anchor="middle" fill="#444">prompt</text>
+
+  <!-- Express -->
+  <rect x="440" y="320" width="420" height="260" rx="10" fill="#7E2FA0"/>
+  <text x="650" y="438" font-size="50" font-weight="500" text-anchor="middle" fill="#fff">Express app</text>
+  <text x="650" y="490" font-size="34" text-anchor="middle" fill="#fff" fill-opacity="0.9">the agent harness</text>
+
+  <!-- Branch -->
+  <line x1="860" y1="450" x2="960" y2="450" stroke="#222" stroke-width="4"/>
+  <line x1="960" y1="228" x2="960" y2="672" stroke="#222" stroke-width="4"/>
+  <line x1="958" y1="230" x2="1456" y2="230" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <line x1="958" y1="670" x2="1456" y2="670" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+
+  <text x="1205" y="172" font-size="30" font-style="italic" text-anchor="middle" fill="#333">“run this Python</text>
+  <text x="1205" y="210" font-size="30" font-style="italic" text-anchor="middle" fill="#333">the LLM just wrote”</text>
+  <text x="1205" y="612" font-size="30" font-style="italic" text-anchor="middle" fill="#333">“continue working on</text>
+  <text x="1205" y="650" font-size="30" font-style="italic" text-anchor="middle" fill="#333">this repo tomorrow”</text>
+
+  <!-- Dynamic session -->
+  <rect x="1460" y="120" width="490" height="220" rx="10" fill="#2D6FAE"/>
+  <text x="1705" y="212" font-size="48" font-weight="500" text-anchor="middle" fill="#fff">Dynamic session</text>
+  <text x="1705" y="262" font-size="34" text-anchor="middle" fill="#fff">use and discard</text>
+  <text x="1705" y="304" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.85">destroyed after cooldown</text>
+
+  <!-- Sandbox -->
+  <rect x="1460" y="560" width="490" height="220" rx="10" fill="#2E9B4F"/>
+  <text x="1705" y="652" font-size="48" font-weight="500" text-anchor="middle" fill="#fff">Sandbox</text>
+  <text x="1705" y="702" font-size="34" text-anchor="middle" fill="#fff">suspend and resume</text>
+  <text x="1705" y="744" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.85">snapshot of memory + disk</text>
+
+  <!-- Legend brackets -->
+  <path d="M440 845 L440 862 L860 862 L860 845" fill="none" stroke="#222" stroke-width="3"/>
+  <text x="650" y="908" font-size="30" text-anchor="middle" fill="#222">your code — trusted</text>
+  <path d="M1460 845 L1460 862 L1950 862 L1950 845" fill="none" stroke="#222" stroke-width="3"/>
+  <text x="1705" y="908" font-size="30" text-anchor="middle" fill="#222">generated code — isolated</text>
+</svg>
