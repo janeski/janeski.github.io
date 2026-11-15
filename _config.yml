@@ -5,6 +5,7 @@ url: 'https://janeski.tech'
 default_image: /images/social-default.png
 baseurl: ''
 google_analytics: 'G-JYX06B7F87'
+google_tag_manager: 'GTM-N4S4MZMH'
 # disqus_shortname: 'your-disqus-name'
 # disable_landing_page: true
 
