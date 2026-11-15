@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 600" width="1900" height="600" font-family="Aptos, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+    <marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C62828"/>
+    </marker>
+  </defs>
+
+  <rect width="1900" height="600" fill="#fff"/>
+
+  <!-- 1. Model -->
+  <rect x="40" y="110" width="300" height="220" rx="10" fill="#3B3F45"/>
+  <text x="190" y="200" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">Model</text>
+  <text x="190" y="245" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">proposes</text>
+  <text x="190" y="280" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">acknowledgeAlarm</text>
+
+  <!-- 2. Governance sidecar -->
+  <rect x="420" y="110" width="300" height="220" rx="10" fill="#7E2FA0"/>
+  <text x="570" y="180" font-size="34" font-weight="600" text-anchor="middle" fill="#fff">agent-api</text>
+  <text x="570" y="222" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">+ governance sidecar</text>
+  <text x="570" y="275" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">policy: this tool</text>
+  <text x="570" y="305" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">needs approval</text>
+
+  <!-- 3. Human approval -->
+  <rect x="800" y="110" width="300" height="220" rx="10" fill="#2A8A8F"/>
+  <text x="950" y="200" font-size="34" font-weight="600" text-anchor="middle" fill="#fff">Engineer</text>
+  <text x="950" y="245" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">sees the action and</text>
+  <text x="950" y="280" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">the note behind it</text>
+
+  <!-- 4. Tool -->
+  <rect x="1180" y="110" width="300" height="220" rx="10" fill="#2D6FAE"/>
+  <text x="1330" y="180" font-size="34" font-weight="600" text-anchor="middle" fill="#fff">alarm-tools</text>
+  <text x="1330" y="222" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">MCP server</text>
+  <text x="1330" y="275" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">may this caller</text>
+  <text x="1330" y="305" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">touch this asset?</text>
+
+  <!-- 5. Data -->
+  <rect x="1560" y="110" width="300" height="220" rx="10" fill="#3C34A3"/>
+  <text x="1710" y="210" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">Postgres</text>
+  <text x="1710" y="255" font-size="24" text-anchor="middle" fill="#fff" fill-opacity="0.9">alarm acknowledged</text>
+
+  <!-- happy path -->
+  <line x1="340" y1="220" x2="416" y2="220" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <line x1="720" y1="220" x2="796" y2="220" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="758" y="198" font-size="22" text-anchor="middle" fill="#444">held</text>
+  <line x1="1100" y1="220" x2="1176" y2="220" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="1138" y="198" font-size="22" text-anchor="middle" fill="#444">yes</text>
+  <line x1="1480" y1="220" x2="1556" y2="220" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+
+  <!-- failure outcomes -->
+  <line x1="570" y1="330" x2="570" y2="426" stroke="#C62828" stroke-width="4" marker-end="url(#ahr)"/>
+  <rect x="420" y="430" width="300" height="110" rx="10" fill="#fff" stroke="#C62828" stroke-width="3"/>
+  <text x="570" y="477" font-size="26" font-weight="600" text-anchor="middle" fill="#C62828">Policy denial</text>
+  <text x="570" y="512" font-size="22" text-anchor="middle" fill="#444">tool not allowed / over limit</text>
+
+  <line x1="950" y1="330" x2="950" y2="426" stroke="#C62828" stroke-width="4" marker-end="url(#ahr)"/>
+  <rect x="800" y="430" width="300" height="110" rx="10" fill="#fff" stroke="#C62828" stroke-width="3"/>
+  <text x="950" y="477" font-size="26" font-weight="600" text-anchor="middle" fill="#C62828">Rejected</text>
+  <text x="950" y="512" font-size="22" text-anchor="middle" fill="#444">nothing happens</text>
+
+  <line x1="1330" y1="330" x2="1330" y2="426" stroke="#C62828" stroke-width="4" marker-end="url(#ahr)"/>
+  <rect x="1180" y="430" width="300" height="110" rx="10" fill="#fff" stroke="#C62828" stroke-width="3"/>
+  <text x="1330" y="477" font-size="26" font-weight="600" text-anchor="middle" fill="#C62828">Authorization failure</text>
+  <text x="1330" y="512" font-size="22" text-anchor="middle" fill="#444">e.g. D-9 from site A</text>
+
+  <text x="190" y="70" font-size="26" font-weight="600" text-anchor="middle" fill="#5B6470">1 · propose</text>
+  <text x="570" y="70" font-size="26" font-weight="600" text-anchor="middle" fill="#5B6470">2 · policy</text>
+  <text x="950" y="70" font-size="26" font-weight="600" text-anchor="middle" fill="#5B6470">3 · approve</text>
+  <text x="1330" y="70" font-size="26" font-weight="600" text-anchor="middle" fill="#5B6470">4 · authorize</text>
+  <text x="1710" y="70" font-size="26" font-weight="600" text-anchor="middle" fill="#5B6470">5 · act</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 960" width="2000" height="960" font-family="Aptos, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <rect width="2000" height="960" fill="#fff"/>
+
+  <!-- Azure Container Apps boundary -->
+  <rect x="300" y="50" width="1200" height="870" rx="18" fill="#F6F7F9" stroke="#A3ABB5" stroke-width="3" stroke-dasharray="14 10"/>
+  <text x="330" y="102" font-size="32" font-weight="600" fill="#5B6470">Azure Container Apps — Stage 0</text>
+
+  <!-- Engineer -->
+  <circle cx="105" cy="395" r="42" fill="#3B3F45"/>
+  <path d="M40 525 C40 470 70 448 105 448 C140 448 170 470 170 525 Z" fill="#3B3F45"/>
+  <text x="105" y="580" font-size="34" text-anchor="middle" fill="#222">Engineer</text>
+  <line x1="185" y1="450" x2="376" y2="450" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="240" y="425" font-size="28" text-anchor="middle" fill="#444">question</text>
+
+  <!-- agent-api: everything in one box -->
+  <rect x="380" y="140" width="640" height="590" rx="14" fill="#7E2FA0"/>
+  <text x="700" y="210" font-size="50" font-weight="600" text-anchor="middle" fill="#fff">agent-api</text>
+  <text x="700" y="256" font-size="30" text-anchor="middle" fill="#fff" fill-opacity="0.9">one app · one identity · one network</text>
+
+  <rect x="415" y="300" width="275" height="190" rx="10" fill="#fff" fill-opacity="0.16"/>
+  <text x="552" y="385" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">Agent loop</text>
+  <text x="552" y="430" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">calls the model</text>
+
+  <rect x="710" y="300" width="275" height="190" rx="10" fill="#fff" fill-opacity="0.16"/>
+  <text x="847" y="385" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">Tools</text>
+  <text x="847" y="430" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">alarms · notes · ack</text>
+
+  <rect x="415" y="510" width="275" height="190" rx="10" fill="#fff" fill-opacity="0.16"/>
+  <text x="552" y="595" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">Python</text>
+  <text x="552" y="640" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">generated, subprocess</text>
+
+  <rect x="710" y="510" width="275" height="190" rx="10" fill="#fff" fill-opacity="0.16"/>
+  <text x="847" y="595" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">/run/secrets</text>
+  <text x="847" y="640" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">DB + model keys</text>
+
+  <!-- Postgres -->
+  <rect x="1140" y="550" width="320" height="200" rx="10" fill="#2D6FAE"/>
+  <text x="1300" y="640" font-size="42" font-weight="600" text-anchor="middle" fill="#fff">Postgres</text>
+  <text x="1300" y="685" font-size="28" text-anchor="middle" fill="#fff" fill-opacity="0.9">pgvector · alarms</text>
+  <line x1="1020" y1="650" x2="1136" y2="650" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="1078" y="628" font-size="24" text-anchor="middle" fill="#444">full</text>
+
+  <!-- Plant: simulator + NATS -->
+  <rect x="380" y="780" width="300" height="110" rx="10" fill="#2E9B4F"/>
+  <text x="530" y="830" font-size="34" font-weight="600" text-anchor="middle" fill="#fff">Simulator</text>
+  <text x="530" y="868" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">D-1…D-3, P-1</text>
+  <line x1="680" y1="835" x2="776" y2="835" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="728" y="815" font-size="24" text-anchor="middle" fill="#444">MQTT</text>
+
+  <rect x="780" y="780" width="320" height="110" rx="10" fill="#2E9B4F"/>
+  <text x="940" y="830" font-size="34" font-weight="600" text-anchor="middle" fill="#fff">NATS</text>
+  <text x="940" y="868" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">JetStream</text>
+  <path d="M1100 835 L1300 835 L1300 754" fill="none" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="1200" y="815" font-size="24" text-anchor="middle" fill="#444">ingest</text>
+
+  <!-- Outside the boundary -->
+  <rect x="1580" y="110" width="380" height="170" rx="10" fill="#3B3F45"/>
+  <text x="1770" y="185" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">External model</text>
+  <text x="1770" y="230" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">API provider</text>
+  <line x1="1020" y1="195" x2="1576" y2="195" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="1300" y="175" font-size="26" text-anchor="middle" fill="#444">prompts · telemetry · notes</text>
+
+  <rect x="1580" y="340" width="380" height="170" rx="10" fill="#3B3F45"/>
+  <text x="1770" y="415" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">The internet</text>
+  <text x="1770" y="460" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">any destination</text>
+  <line x1="1020" y1="425" x2="1576" y2="425" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="1300" y="405" font-size="26" text-anchor="middle" fill="#444">any outbound call</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 960" width="2000" height="960" font-family="Aptos, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <rect width="2000" height="960" fill="#fff"/>
+
+  <!-- Azure Container Apps boundary -->
+  <rect x="300" y="50" width="1200" height="870" rx="18" fill="#F6F7F9" stroke="#A3ABB5" stroke-width="3" stroke-dasharray="14 10"/>
+  <text x="330" y="102" font-size="32" font-weight="600" fill="#5B6470">Azure Container Apps — Stage 1</text>
+
+  <!-- Engineer -->
+  <circle cx="105" cy="245" r="42" fill="#3B3F45"/>
+  <path d="M40 375 C40 320 70 298 105 298 C140 298 170 320 170 375 Z" fill="#3B3F45"/>
+  <text x="105" y="430" font-size="34" text-anchor="middle" fill="#222">Engineer</text>
+  <line x1="185" y1="300" x2="376" y2="300" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="240" y="275" font-size="28" text-anchor="middle" fill="#444">question</text>
+
+  <!-- agent-api -->
+  <rect x="380" y="140" width="640" height="300" rx="14" fill="#7E2FA0"/>
+  <text x="700" y="210" font-size="50" font-weight="600" text-anchor="middle" fill="#fff">agent-api</text>
+  <text x="700" y="256" font-size="30" text-anchor="middle" fill="#fff" fill-opacity="0.9">one app · one identity</text>
+  <rect x="415" y="300" width="275" height="110" rx="10" fill="#fff" fill-opacity="0.16"/>
+  <text x="552" y="367" font-size="34" font-weight="600" text-anchor="middle" fill="#fff">Agent loop</text>
+  <rect x="710" y="300" width="275" height="110" rx="10" fill="#fff" fill-opacity="0.16"/>
+  <text x="847" y="367" font-size="34" font-weight="600" text-anchor="middle" fill="#fff">Tools</text>
+
+  <!-- Postgres: still fully reachable (A3) -->
+  <rect x="1140" y="260" width="320" height="180" rx="10" fill="#2D6FAE"/>
+  <text x="1300" y="340" font-size="42" font-weight="600" text-anchor="middle" fill="#fff">Postgres</text>
+  <text x="1300" y="385" font-size="28" text-anchor="middle" fill="#fff" fill-opacity="0.9">pgvector · alarms</text>
+  <line x1="1020" y1="350" x2="1136" y2="350" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="1078" y="328" font-size="24" text-anchor="middle" fill="#444">full</text>
+
+  <!-- External model -->
+  <rect x="1580" y="110" width="380" height="170" rx="10" fill="#3B3F45"/>
+  <text x="1770" y="185" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">External model</text>
+  <text x="1770" y="230" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">API provider</text>
+  <line x1="1020" y1="195" x2="1576" y2="195" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="1300" y="175" font-size="26" text-anchor="middle" fill="#444">prompts · telemetry · notes</text>
+
+  <!-- Execution moved out -->
+  <line x1="530" y1="440" x2="530" y2="556" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <line x1="870" y1="440" x2="870" y2="556" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="700" y="505" font-size="26" text-anchor="middle" fill="#444">script + data window</text>
+
+  <rect x="380" y="560" width="300" height="220" rx="10" fill="#3C34A3"/>
+  <text x="530" y="640" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">Dynamic session</text>
+  <text x="530" y="688" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">disposable analysis</text>
+  <text x="530" y="728" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">egress disabled</text>
+
+  <rect x="720" y="560" width="300" height="220" rx="10" fill="#3C34A3"/>
+  <text x="870" y="640" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">Sandbox</text>
+  <text x="870" y="688" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">resumable investigation</text>
+  <text x="870" y="728" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">Deny · Full inspection</text>
+
+  <!-- Outbound attempts, denied at the boundary -->
+  <line x1="1020" y1="670" x2="1470" y2="670" stroke="#222" stroke-width="4"/>
+  <text x="1245" y="650" font-size="26" text-anchor="middle" fill="#444">upload to collector</text>
+  <path d="M530 780 L530 850 L1470 850" fill="none" stroke="#222" stroke-width="4"/>
+  <text x="1000" y="830" font-size="26" text-anchor="middle" fill="#444">upload to collector</text>
+
+  <circle cx="1500" cy="670" r="26" fill="#C62828"/>
+  <path d="M1488 658 L1512 682 M1512 658 L1488 682" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="1500" cy="850" r="26" fill="#C62828"/>
+  <path d="M1488 838 L1512 862 M1512 838 L1488 862" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  <text x="1245" y="712" font-size="26" font-weight="600" text-anchor="middle" fill="#C62828">denied</text>
+  <text x="1245" y="892" font-size="26" font-weight="600" text-anchor="middle" fill="#C62828">denied</text>
+
+  <rect x="1580" y="670" width="380" height="170" rx="10" fill="#3B3F45"/>
+  <text x="1770" y="745" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">The internet</text>
+  <text x="1770" y="790" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">unreachable from code</text>
+</svg>

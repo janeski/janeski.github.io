@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 140 1900 580" width="1900" height="580" font-family="Aptos, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8A929C"/>
+    </marker>
+  </defs>
+
+  <rect y="140" width="1900" height="580" fill="#fff"/>
+
+  <!-- agent-api -->
+  <rect x="80" y="200" width="360" height="260" rx="12" fill="#7E2FA0"/>
+  <text x="260" y="290" font-size="46" font-weight="600" text-anchor="middle" fill="#fff">agent-api</text>
+  <rect x="120" y="330" width="280" height="90" rx="10" fill="#fff" fill-opacity="0.16"/>
+  <text x="260" y="388" font-size="32" font-weight="600" text-anchor="middle" fill="#fff">IChatClient</text>
+
+  <!-- Managed model API, outside -->
+  <rect x="1500" y="170" width="360" height="180" rx="10" fill="#3B3F45"/>
+  <text x="1680" y="250" font-size="36" font-weight="600" text-anchor="middle" fill="#fff">Managed model</text>
+  <text x="1680" y="295" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">API provider</text>
+  <line x1="440" y1="260" x2="1496" y2="260" stroke="#8A929C" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#ahg)"/>
+  <text x="970" y="238" font-size="28" text-anchor="middle" fill="#5B6470">Stages 0–3 · prompts leave the environment</text>
+
+  <!-- Workload-profiles environment -->
+  <rect x="620" y="400" width="820" height="290" rx="18" fill="#EEF8F1" stroke="#9FCFAE" stroke-width="3" stroke-dasharray="14 10"/>
+  <text x="650" y="445" font-size="26" font-weight="600" fill="#5B6470">workload-profiles environment · Consumption GPU profile</text>
+
+  <rect x="860" y="480" width="440" height="180" rx="10" fill="#2E9B4F"/>
+  <text x="1080" y="550" font-size="40" font-weight="600" text-anchor="middle" fill="#fff">inference</text>
+  <text x="1080" y="592" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">open model · serverless GPU</text>
+  <text x="1080" y="630" font-size="26" text-anchor="middle" fill="#fff" fill-opacity="0.9">internal ingress only</text>
+
+  <path d="M440 410 L540 410 L540 570 L856 570" fill="none" stroke="#222" stroke-width="4" marker-end="url(#ah)"/>
+  <text x="740" y="550" font-size="28" font-weight="600" text-anchor="middle" fill="#2E7D32">Stage 4</text>
+
+  <text x="260" y="520" font-size="26" text-anchor="middle" fill="#5B6470">backend = configuration</text>
+</svg>
