@@ -1,0 +1,4 @@
+2026/10/25-22:15:13.928 d97c Log #3: 1 ops saved to Table #4 OK
+2026/10/25-22:15:14.941 d97c Archiving C:\Users\mja\source\repos\janeski.github.io\_talks\aca-whiteboard\.edge\Default\Site Characteristics Database/000003.log: IO error: C:\Users\mja\source\repos\janeski.github.io\_talks\aca-whiteboard\.edge\Default\Site Characteristics Database/000003.log: Could not rename file: File currently in use. (ChromeMethodBFE: 14::RenameFile::2)
+2026/10/25-22:15:14.942 d97c Table #4: 1 entries OK
+2026/10/25-22:15:15.975 d97c Archiving C:\Users\mja\source\repos\janeski.github.io\_talks\aca-whiteboard\.edge\Default\Site Characteristics Database/MANIFEST-000001: IO error: C:\Users\mja\source\repos\janeski.github.io\_talks\aca-whiteboard\.edge\Default\Site Characteristics Database/MANIFEST-000001: Could not rename file: File currently in use. (ChromeMethodBFE: 14::RenameFile::2)
